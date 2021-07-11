@@ -1,0 +1,33 @@
+:root[data-theme="one"] {
+	@each $type, $values in $themeOne {
+		@each $number, $value in $values {
+			--clr-#{$type}-#{$number}: #{$value};
+		}
+	}
+}
+:root[data-theme="two"] {
+	@each $type, $values in $themeTwo {
+		@each $number, $value in $values {
+			--clr-#{$type}-#{$number}: #{$value};
+		}
+	}
+}
+:root[data-theme="three"] {
+	@each $type, $values in $themeThree {
+		@each $number, $value in $values {
+			--clr-#{$type}-#{$number}: #{$value};
+		}
+	}
+}
+
+:root {
+	@each $weight, $value in $font-weights {
+		--fw-#{$weight}: #{$value};
+	}
+	@each $size, $value in $font-sizes {
+		--fs-#{$size}: #{$value};
+	}
+	@each $family, $value in $font-families {
+		--ff-#{$family}: "#{$value}", sans-serif;
+	}
+}

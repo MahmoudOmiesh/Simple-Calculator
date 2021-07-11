@@ -1,0 +1,20 @@
+// * {
+// 	transition: background-color 250ms ease-out, color 250ms ease-out;
+// } I Don't know how much this can affect performance so I chose to leave it out
+
+body {
+	min-height: 100vh;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
+	font-family: var(--ff-main);
+
+	background-color: var(--clr-backgrounds-1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.calculator {
+	--spacing: 0.55em;
+	flex-basis: 27rem;
+}

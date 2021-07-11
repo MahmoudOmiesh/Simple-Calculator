@@ -1,0 +1,51 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--clr-text-2);
+	margin-bottom: var(--spacing);
+
+	&__logo {
+		font-size: 1.35rem;
+	}
+
+	&__themes {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+	}
+
+	&__button {
+		border: 0;
+		background: none;
+		color: var(--clr-text-2);
+		font-size: 0.65rem;
+	}
+
+	&__toggler {
+		grid-column: 1/4;
+		background-color: var(--clr-backgrounds-2);
+		border-radius: 100vh;
+		position: relative;
+
+		@include pseudo(before) {
+			content: "THEME";
+			font-size: 0.6rem;
+			left: -45px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+
+	&__ball {
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background-color: var(--clr-keys-3);
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 5%;
+		transition: left 250ms ease-out, background-color 250ms ease-out;
+	}
+}

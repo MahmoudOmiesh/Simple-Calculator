@@ -1,0 +1,246 @@
+:root[data-theme=one] {
+  --clr-backgrounds-1: #3a4764;
+  --clr-backgrounds-2: #232c43;
+  --clr-backgrounds-3: #182034;
+  --clr-keys-1: #637097;
+  --clr-keys-2: #404e72;
+  --clr-keys-3: #d03f2f;
+  --clr-keys-4: #93261a;
+  --clr-keys-5: #eae3dc;
+  --clr-keys-6: #b4a597;
+  --clr-text-1: #444b5a;
+  --clr-text-2: white;
+}
+
+:root[data-theme=two] {
+  --clr-backgrounds-1: #e6e6e6;
+  --clr-backgrounds-2: #d1cccc;
+  --clr-backgrounds-3: #ededed;
+  --clr-keys-1: #377f86;
+  --clr-keys-2: #1b5f65;
+  --clr-keys-3: #ca5502;
+  --clr-keys-4: #893901;
+  --clr-keys-5: #e5e4e1;
+  --clr-keys-6: #a69d91;
+  --clr-text-1: #35352c;
+  --clr-text-2: white;
+}
+
+:root[data-theme=three] {
+  --clr-backgrounds-1: #160628;
+  --clr-backgrounds-2: #1d0934;
+  --clr-backgrounds-3: #1d0934;
+  --clr-keys-1: #58077d;
+  --clr-keys-2: #bc15f4;
+  --clr-keys-3: #00e0d1;
+  --clr-keys-4: #6cf9f2;
+  --clr-keys-5: #341c4f;
+  --clr-keys-6: #871c9c;
+  --clr-text-1: #ffe53d;
+  --clr-text-2: white;
+  --clr-text-3: #1b2428;
+}
+
+:root {
+  --fw-bold: 700;
+  --fs-numbers: 2rem;
+  --ff-main: "Spartan", sans-serif;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+button:focus {
+  border: none;
+  outline: none;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: var(--ff-main);
+  background-color: var(--clr-backgrounds-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator {
+  --spacing: 0.55em;
+  flex-basis: 27rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--clr-text-2);
+  margin-bottom: var(--spacing);
+}
+.header__logo {
+  font-size: 1.35rem;
+}
+.header__themes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.header__button {
+  border: 0;
+  background: none;
+  color: var(--clr-text-2);
+  font-size: 0.65rem;
+}
+.header__toggler {
+  grid-column: 1/4;
+  background-color: var(--clr-backgrounds-2);
+  border-radius: 100vh;
+  position: relative;
+  position: relative;
+}
+.header__toggler::before {
+  position: absolute;
+  content: "";
+  content: "THEME";
+  font-size: 0.6rem;
+  left: -45px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.header__ball {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--clr-keys-3);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5%;
+  transition: left 250ms ease-out, background-color 250ms ease-out;
+}
+
+.screen {
+  background-color: var(--clr-backgrounds-3);
+  font-size: var(--fs-numbers);
+  color: var(--clr-text-2);
+  text-align: right;
+  padding: 1em 0.8em;
+  height: 7rem;
+  margin-bottom: var(--spacing);
+  border-radius: 0.25em;
+}
+
+.buttons {
+  background-color: var(--clr-backgrounds-2);
+  padding: 1.25em;
+  border-radius: 0.5em;
+  display: grid;
+  grid-template-columns: repeat(4, calc(25% - 0.75em));
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1em;
+}
+.buttons__button {
+  padding: 0.45rem 0;
+  color: var(--clr-text-1);
+  font-size: var(--fs-numbers);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  outline: 0;
+  border-radius: 0.25em;
+  background-color: var(--clr-keys-5);
+  box-shadow: 0 0.1em 0 var(--clr-keys-6);
+  transition: transform 250ms ease-out;
+}
+.buttons__button:hover {
+  transform: scale(1.03);
+}
+.buttons .delete, .buttons .reset {
+  text-transform: uppercase;
+  background-color: var(--clr-keys-1);
+  box-shadow: 0 0.1em 0 var(--clr-keys-2);
+  font-size: 1.25rem;
+  color: var(--clr-text-2);
+}
+.buttons .reset {
+  grid-column: 1/3;
+}
+.buttons .equal {
+  background-color: var(--clr-keys-3);
+  box-shadow: 0 0.1em 0 var(--clr-keys-4);
+  font-size: 1.25rem;
+  color: var(--clr-text-2);
+  grid-column: 3/-1;
+}
